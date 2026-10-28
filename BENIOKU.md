@@ -22,11 +22,11 @@ Temel teslim tespit ve korelasyondur. Otomatik trafik engelleme olası genişlet
 
 | İçerik | Dosya |
 |---|---|
-| Bileşenler ve veri akışı | [Mimari](docs/mimari.md) |
-| Dil tasarımı ve kural türleri | [DSL tasarımı](docs/dsl-tasarimi.md) |
-| Örnek SSH sayım kuralı | [ssh_failures.dsl](examples/ssh_failures.dsl) |
-| Yedi iş paketi | [Geliştirme planı](docs/gelistirme-plani.md) |
-| Sentetik veri deneyi ve yeniden çalıştırma | [EvidenceForge ön deneyi](experiments/evidenceforge/README.md) |
+| Bileşenler ve veri akışı | [Mimari](belgeler/mimari.md) |
+| Dil tasarımı ve kural türleri | [DSL tasarımı](belgeler/dsl-tasarimi.md) |
+| Örnek SSH sayım kuralı | [ssh_basarisiz_girisler.dsl](ornekler/ssh_basarisiz_girisler.dsl) |
+| Yedi iş paketi | [Geliştirme planı](belgeler/gelistirme-plani.md) |
+| Sentetik veri deneyi ve yeniden çalıştırma | [EvidenceForge ön deneyi](deneyler/evidenceforge/BENIOKU.md) |
 
 DSL dosyası bir **tasarım örneğidir**; henüz çalıştırılabilir bir dil sürümü değildir. Uygulamanın kurulum ve çalıştırma adımları geliştirilen kaynaklarla birlikte eklenecektir.
 

@@ -58,7 +58,7 @@ def inspect(name):
 
 for required in ['run-native-a', 'run-native-b', 'run-bulk-a']:
     if not (ROOT/required/'GENERATION_MANIFEST.json').is_file() or not (ROOT/required/'data').is_dir():
-        raise SystemExit(f'Missing generated bundle: {required}. Follow README generation steps first.')
+        raise SystemExit(f'Missing generated bundle: {required}. Follow BENIOKU.md generation steps first.')
 
 results={name:inspect(name) for name in ['run-native-a','run-native-b','run-bulk-a'] if (ROOT/name/'GENERATION_MANIFEST.json').exists()}
 a,b=ROOT/'run-native-a'/'data',ROOT/'run-native-b'/'data'
@@ -71,7 +71,7 @@ result={'source_commit':'79fcfcdf3726168dacfede5a27aab2aa7a2f3d69',
         'limitations':['Reference record inspection, not a test of the future DSL motor.',
             'Fast-format IDS and Zeek conn are not Suricata EVE alert/flow.',
             'Generator acceptance must be read from evaluation report, not process exit code.']}
-(ROOT/'analysis_result.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
+(ROOT/'analiz_sonucu.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
 for name,run in results.items():
     print(name,json.dumps({k:v for k,v in run.items() if k not in ['records_by_file','failures','successes','scan_ports']},ensure_ascii=False))
 print('repeat_data_identical:',files_a==files_b)

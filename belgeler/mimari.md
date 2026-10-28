@@ -1,6 +1,6 @@
 # Önerilen sistem mimarisi
 
-![Bileşenler ve veri akışı](images/mimari.png)
+![Bileşenler ve veri akışı](gorseller/mimari.png)
 
 ## Olay hattı
 

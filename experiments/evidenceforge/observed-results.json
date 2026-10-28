@@ -1,0 +1,234 @@
+{
+  "source_commit": "79fcfcdf3726168dacfede5a27aab2aa7a2f3d69",
+  "study_date": "2026-10-28",
+  "original_scenario_repeat_data_identical": true,
+  "comparison_scope": "Only emitted data files; wall-clock generation metadata excluded.",
+  "runs": {
+    "run-native-a": {
+      "bundle": "run-native-a",
+      "version": "2.1.2",
+      "seed": 20261028,
+      "records_by_file": {
+        "data\\CLIENT-01.dsl-lab.example\\syslog.log": 45,
+        "data\\lab-ids\\snort_alert.log": 4,
+        "data\\lab-zeek\\conn.json": 154,
+        "data\\lab-zeek\\dns.json": 63,
+        "data\\lab-zeek\\files.json": 31,
+        "data\\lab-zeek\\http.json": 4,
+        "data\\lab-zeek\\ocsp.json": 3,
+        "data\\lab-zeek\\ssl.json": 33,
+        "data\\lab-zeek\\x509.json": 23,
+        "data\\SSH-01.dsl-lab.example\\syslog.log": 73
+      },
+      "data_file_count": 10,
+      "total_data_lines": 433,
+      "ndjson_errors": [],
+      "manifest_hashes_match": true,
+      "attack_failed_password_records": 3,
+      "attack_failures_max_60s": 2,
+      "attack_success_records": 1,
+      "benign_failed_password_records": 1,
+      "scan_distinct_target_ports": 0,
+      "scan_ports": [],
+      "scan_ports_by_observed_target": {
+        "10.77.0.41": 20
+      },
+      "matching_auth_and_ids": true,
+      "eve_json_files": 0,
+      "failures": [
+        {
+          "time": "2026-10-28T09:09:57.951836+00:00",
+          "username": "labadmin",
+          "src_ip": "203.0.113.50",
+          "src_port": 49822
+        },
+        {
+          "time": "2026-10-28T09:10:16.315121+00:00",
+          "username": "labadmin",
+          "src_ip": "203.0.113.50",
+          "src_port": 50158
+        },
+        {
+          "time": "2026-10-28T09:11:08.028605+00:00",
+          "username": "labadmin",
+          "src_ip": "203.0.113.50",
+          "src_port": 64385
+        },
+        {
+          "time": "2026-10-28T09:29:48.747721+00:00",
+          "username": "labadmin",
+          "src_ip": "10.77.0.10",
+          "src_port": 44867
+        }
+      ],
+      "successes": [
+        {
+          "time": "2026-10-28T09:11:01.947813+00:00",
+          "username": "labadmin",
+          "src_ip": "203.0.113.50",
+          "src_port": 49513
+        }
+      ]
+    },
+    "run-native-b": {
+      "bundle": "run-native-b",
+      "version": "2.1.2",
+      "seed": 20261028,
+      "records_by_file": {
+        "data\\CLIENT-01.dsl-lab.example\\syslog.log": 45,
+        "data\\lab-ids\\snort_alert.log": 4,
+        "data\\lab-zeek\\conn.json": 154,
+        "data\\lab-zeek\\dns.json": 63,
+        "data\\lab-zeek\\files.json": 31,
+        "data\\lab-zeek\\http.json": 4,
+        "data\\lab-zeek\\ocsp.json": 3,
+        "data\\lab-zeek\\ssl.json": 33,
+        "data\\lab-zeek\\x509.json": 23,
+        "data\\SSH-01.dsl-lab.example\\syslog.log": 73
+      },
+      "data_file_count": 10,
+      "total_data_lines": 433,
+      "ndjson_errors": [],
+      "manifest_hashes_match": true,
+      "attack_failed_password_records": 3,
+      "attack_failures_max_60s": 2,
+      "attack_success_records": 1,
+      "benign_failed_password_records": 1,
+      "scan_distinct_target_ports": 0,
+      "scan_ports": [],
+      "scan_ports_by_observed_target": {
+        "10.77.0.41": 20
+      },
+      "matching_auth_and_ids": true,
+      "eve_json_files": 0,
+      "failures": [
+        {
+          "time": "2026-10-28T09:09:57.951836+00:00",
+          "username": "labadmin",
+          "src_ip": "203.0.113.50",
+          "src_port": 49822
+        },
+        {
+          "time": "2026-10-28T09:10:16.315121+00:00",
+          "username": "labadmin",
+          "src_ip": "203.0.113.50",
+          "src_port": 50158
+        },
+        {
+          "time": "2026-10-28T09:11:08.028605+00:00",
+          "username": "labadmin",
+          "src_ip": "203.0.113.50",
+          "src_port": 64385
+        },
+        {
+          "time": "2026-10-28T09:29:48.747721+00:00",
+          "username": "labadmin",
+          "src_ip": "10.77.0.10",
+          "src_port": 44867
+        }
+      ],
+      "successes": [
+        {
+          "time": "2026-10-28T09:11:01.947813+00:00",
+          "username": "labadmin",
+          "src_ip": "203.0.113.50",
+          "src_port": 49513
+        }
+      ]
+    },
+    "run-bulk-a": {
+      "bundle": "run-bulk-a",
+      "version": "2.1.2",
+      "seed": 20261028,
+      "records_by_file": {
+        "data\\CLIENT-01.dsl-lab.example\\syslog.log": 43,
+        "data\\lab-ids\\snort_alert.log": 3,
+        "data\\lab-zeek\\conn.json": 137,
+        "data\\lab-zeek\\dns.json": 55,
+        "data\\lab-zeek\\files.json": 18,
+        "data\\lab-zeek\\http.json": 1,
+        "data\\lab-zeek\\ssl.json": 36,
+        "data\\lab-zeek\\x509.json": 17,
+        "data\\SSH-01.dsl-lab.example\\syslog.log": 79
+      },
+      "data_file_count": 9,
+      "total_data_lines": 389,
+      "ndjson_errors": [],
+      "manifest_hashes_match": true,
+      "attack_failed_password_records": 5,
+      "attack_failures_max_60s": 5,
+      "attack_success_records": 1,
+      "benign_failed_password_records": 1,
+      "scan_distinct_target_ports": 0,
+      "scan_ports": [],
+      "scan_ports_by_observed_target": {
+        "10.77.0.5": 20
+      },
+      "matching_auth_and_ids": true,
+      "eve_json_files": 0,
+      "failures": [
+        {
+          "time": "2026-10-28T09:10:19.351250+00:00",
+          "username": "labadmin",
+          "src_ip": "203.0.113.50",
+          "src_port": 56709
+        },
+        {
+          "time": "2026-10-28T09:10:24.367429+00:00",
+          "username": "labadmin",
+          "src_ip": "203.0.113.50",
+          "src_port": 59791
+        },
+        {
+          "time": "2026-10-28T09:10:29.382311+00:00",
+          "username": "labadmin",
+          "src_ip": "203.0.113.50",
+          "src_port": 55846
+        },
+        {
+          "time": "2026-10-28T09:10:34.018274+00:00",
+          "username": "labadmin",
+          "src_ip": "203.0.113.50",
+          "src_port": 58798
+        },
+        {
+          "time": "2026-10-28T09:10:39.438674+00:00",
+          "username": "labadmin",
+          "src_ip": "203.0.113.50",
+          "src_port": 57154
+        },
+        {
+          "time": "2026-10-28T09:29:47.423229+00:00",
+          "username": "labadmin",
+          "src_ip": "10.77.0.10",
+          "src_port": 33387
+        }
+      ],
+      "successes": [
+        {
+          "time": "2026-10-28T09:10:28.837009+00:00",
+          "username": "labadmin",
+          "src_ip": "203.0.113.50",
+          "src_port": 62181
+        },
+        {
+          "time": "2026-10-28T09:16:49.869653+00:00",
+          "username": "labadmin",
+          "src_ip": "10.77.0.10",
+          "src_port": 34582
+        },
+        {
+          "time": "2026-10-28T09:56:04.087753+00:00",
+          "username": "labadmin",
+          "src_ip": "10.77.0.10",
+          "src_port": 60706
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Reference record inspection, not a test of the future DSL motor.",
+    "Fast-format IDS and Zeek conn are not Suricata EVE alert/flow.",
+    "Generator acceptance must be read from evaluation report, not process exit code."
+  ]
+}

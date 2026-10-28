@@ -1,0 +1,137 @@
+version: '1.0'
+name: dsl-ssh-bulk-pilot
+description: One-hour synthetic SSH and IDS format compatibility study; no live traffic.
+environment:
+  description: Isolated fictional lab
+  domain: dsl-lab.example
+  timezone:
+    default: UTC
+  users:
+  - username: labadmin
+    full_name: Synthetic Lab Admin
+    email: labadmin@example.test
+    enabled: true
+    primary_system: CLIENT-01
+    persona: sysadmin
+  systems:
+  - hostname: CLIENT-01
+    ip: 10.77.0.10
+    os: Ubuntu 22.04 LTS
+    type: workstation
+    assigned_user: labadmin
+    services:
+    - dns-client
+  - hostname: SSH-01
+    ip: 10.77.0.20
+    os: Ubuntu 22.04 LTS
+    type: server
+    services:
+    - ssh
+    - dns-client
+  network:
+    segments:
+    - name: lab
+      cidr: 10.77.0.0/24
+      exposure: both
+      systems:
+      - CLIENT-01
+      - SSH-01
+    sensors:
+    - type: network
+      name: lab-zeek
+      monitoring_segments:
+      - lab
+      direction: bidirectional
+      placement: span
+      log_formats:
+      - zeek
+    - type: ids
+      name: lab-ids
+      monitoring_segments:
+      - lab
+      direction: bidirectional
+      placement: tap
+      log_formats:
+      - snort_alert
+time_window:
+  start: '2026-10-28T09:00:00Z'
+  duration: 1h
+baseline_activity:
+  description: Low-volume normal lab activity
+  intensity: low
+  variation: low
+storyline:
+- id: credential-burst
+  time: +10m
+  actor: labadmin
+  system: SSH-01
+  activity: Five synthetic SSH password failures at fixed intervals
+  events:
+  - type: credential_spray
+    source_ip: 203.0.113.50
+    pattern: brute_force
+    target_accounts:
+    - labadmin
+    interval: 5s
+    count: 5
+    jitter: 0.0
+- id: ssh-success
+  time: +11m
+  actor: labadmin
+  system: SSH-01
+  activity: Synthetic SSH success following five failures
+  events:
+  - type: ssh_session
+    source_ip: 203.0.113.50
+    ids_alerts:
+    - sid: 2002911
+      policy: every
+- id: scan
+  time: +20m
+  actor: labadmin
+  system: CLIENT-01
+  activity: Synthetic twenty-port scan of one lab server
+  events:
+  - type: port_scan
+    source_ip: 10.77.0.10
+    target_segment: lab
+    target_count: 1
+    ports:
+    - 8000
+    - 8001
+    - 8002
+    - 8003
+    - 8004
+    - 8005
+    - 8006
+    - 8007
+    - 8008
+    - 8009
+    - 8010
+    - 8011
+    - 8012
+    - 8013
+    - 8014
+    - 8015
+    - 8016
+    - 8017
+    - 8018
+    - 8019
+    scan_rate: 10.0
+red_herrings:
+- id: benign-typo
+  time: +30m
+  actor: labadmin
+  system: SSH-01
+  activity: One benign password typo from local administrator
+  explanation: Single legitimate-user failure, not a brute-force episode.
+  events:
+  - type: failed_logon
+    source_ip: 10.77.0.10
+output:
+  logs:
+  - format: syslog
+  - format: zeek
+  - format: snort_alert
+  compression: false
+  destination: ./output

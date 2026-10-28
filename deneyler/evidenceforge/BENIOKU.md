@@ -5,11 +5,11 @@ Bu deney, Cisco Talos [EvidenceForge](https://github.com/Cisco-Talos/EvidenceFor
 ## Kaynak ve senaryolar
 
 - Üretici: EvidenceForge 2.1.2, commit `79fcfcdf3726168dacfede5a27aab2aa7a2f3d69`.
-- Başlangıç senaryosu: [scenario.yaml](scenario.yaml), ayrı başarısız giriş olayları.
-- Revize senaryo: [scenario-bulk.yaml](scenario-bulk.yaml), sabit aralıklarla beş başarısız giriş.
+- Başlangıç senaryosu: [senaryo.yaml](senaryo.yaml), ayrı başarısız giriş olayları.
+- Revize senaryo: [senaryo-toplu.yaml](senaryo-toplu.yaml), sabit aralıklarla beş başarısız giriş.
 - Kurgusal ortam: bir kullanıcı, iki Ubuntu sistem, ağ ve IDS sensörleri; bir saatlik olay aralığı.
 - Rastgelelik başlangıç değeri: `20261028`.
-- Yerel ön deney bulguları: [observed-results.json](observed-results.json).
+- Yerel ön deney bulguları: [gozlenen_sonuclar.json](gozlenen_sonuclar.json).
 
 JSON dosyası önceki yerel çalıştırmanın gözlemidir; yeni ortamda ölçüm yapılmadan aynı sonucun alındığı varsayılmamalıdır. Üretilmiş veri demetleri ve üçüncü taraf araç kaynakları bu depoya eklenmemiştir.
 
@@ -41,17 +41,17 @@ git -C evidenceforge checkout 79fcfcdf3726168dacfede5a27aab2aa7a2f3d69
 uv sync --project evidenceforge --frozen --no-dev --python 3.12
 $env:PYTHONIOENCODING = 'utf-8'
 
-& .\evidenceforge\.venv\Scripts\eforge.exe validate scenario.yaml --checkpoint-hours 0
-& .\evidenceforge\.venv\Scripts\eforge.exe validate scenario-bulk.yaml --checkpoint-hours 0
-& .\evidenceforge\.venv\Scripts\eforge.exe generate scenario.yaml -o run-native-a --seed 20261028 --checkpoint-hours 0
-& .\evidenceforge\.venv\Scripts\eforge.exe generate scenario.yaml -o run-native-b --seed 20261028 --checkpoint-hours 0
-& .\evidenceforge\.venv\Scripts\eforge.exe generate scenario-bulk.yaml -o run-bulk-a --seed 20261028 --checkpoint-hours 0
+& .\evidenceforge\.venv\Scripts\eforge.exe validate senaryo.yaml --checkpoint-hours 0
+& .\evidenceforge\.venv\Scripts\eforge.exe validate senaryo-toplu.yaml --checkpoint-hours 0
+& .\evidenceforge\.venv\Scripts\eforge.exe generate senaryo.yaml -o run-native-a --seed 20261028 --checkpoint-hours 0
+& .\evidenceforge\.venv\Scripts\eforge.exe generate senaryo.yaml -o run-native-b --seed 20261028 --checkpoint-hours 0
+& .\evidenceforge\.venv\Scripts\eforge.exe generate senaryo-toplu.yaml -o run-bulk-a --seed 20261028 --checkpoint-hours 0
 & .\evidenceforge\.venv\Scripts\eforge.exe eval run-native-a
 & .\evidenceforge\.venv\Scripts\eforge.exe eval run-bulk-a
-python analyze_pilot.py
+python on_deney_analizi.py
 ```
 
-Çıktı dizinleri yeni olmalıdır. Son komut Python standart kütüphanesiyle kayıtları ve manifest özetlerini inceleyerek `analysis_result.json` üretir. Bu yeni dosya ile kayıtlı `observed-results.json` karşılaştırılabilir. Analiz betiği üreticinin bütün kalite ölçütlerini yeniden uygulamaz; `eval` raporları ayrıca değerlendirilmelidir.
+Çıktı dizinleri yeni olmalıdır. Son komut Python standart kütüphanesiyle kayıtları ve manifest özetlerini inceleyerek `analiz_sonucu.json` üretir. Bu yeni dosya ile kayıtlı `gozlenen_sonuclar.json` karşılaştırılabilir. Analiz betiği üreticinin bütün kalite ölçütlerini yeniden uygulamaz; `eval` raporları ayrıca değerlendirilmelidir.
 
 ## Sonraki çalışma
 

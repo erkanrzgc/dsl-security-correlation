@@ -10,9 +10,9 @@ venv/
 build/
 dist/
 *.egg-info/
-experiments/evidenceforge/evidenceforge/
-experiments/evidenceforge/run-*/
-experiments/evidenceforge/spool/
-experiments/evidenceforge/analysis_result.json
+deneyler/evidenceforge/evidenceforge/
+deneyler/evidenceforge/run-*/
+deneyler/evidenceforge/spool/
+deneyler/evidenceforge/analiz_sonucu.json
 Thumbs.db
 .DS_Store

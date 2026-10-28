@@ -14,7 +14,7 @@ rule ssh_failures {
 }
 ```
 
-Bu [tasarım örneği](../examples/ssh_failures.dsl), aynı kaynak IP'den 60 saniyede en az beş ayrı SSH kimlik doğrulama başarısızlığı için alarmı ifade eder. Eşik ve süre, senaryo üzerinde değerlendirilecek başlangıç değerleridir. Henüz bu dosyayı çalıştıran bir güvenlik DSL ayrıştırıcısı yayımlanmamıştır.
+Bu [tasarım örneği](../ornekler/ssh_basarisiz_girisler.dsl), aynı kaynak IP'den 60 saniyede en az beş ayrı SSH kimlik doğrulama başarısızlığı için alarmı ifade eder. Eşik ve süre, senaryo üzerinde değerlendirilecek başlangıç değerleridir. Henüz bu dosyayı çalıştıran bir güvenlik DSL ayrıştırıcısı yayımlanmamıştır.
 
 ## Kural türleri
 
